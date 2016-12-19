@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AppMonitor</string>
+    <string name="connection_type_text">Connection Type:</string>
+    <string name="connection_type_value">none</string>
+    <string name="own_ip_address_text">REST IP Address:</string>
+    <string name="own_ip_address_value">none</string>
+
+    <string name="moon_app_name_text">App Name:</string>
+    <string name="moon_app_name_value">beehd</string>
+    <string name="rest_listener_port_text">REST Port:</string>
+    <string name="rest_listener_port_value">7654</string>
+
+    <string name="action_restart">Restart Server</string>
+    <string name="action_stop">Stop Monitor</string>
+</resources>
