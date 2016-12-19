@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int ownPID = android.os.Process.myPid();
 
     private static final int TL = Toast.LENGTH_SHORT;
-    private static final String logTAG = String.valueOf(ownPID) + ": ";
+    private static final String logTAG =
+            String.valueOf(ownPID) + "::" + MainActivity.class.getSimpleName();
 
     private AsyncHttpServer mAsyncHttpserver = new AsyncHttpServer();
     private AsyncServer mAsyncServer = new AsyncServer();
