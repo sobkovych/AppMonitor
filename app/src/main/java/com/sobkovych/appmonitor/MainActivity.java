@@ -182,8 +182,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 JSONObject jsonResp = new JSONObject();
                 try {
+                    jsonResp.put("AppName", appName);
                     if (mCount > 0) {
-                        jsonResp.put("AppName", appName);
                         jsonResp.put("Status", "Started");
                         jsonResp.put("ProcCount", mCount);
                     } else {
