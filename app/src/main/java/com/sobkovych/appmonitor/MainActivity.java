@@ -338,16 +338,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (mPrefs == null) {
             appSettingsLoad();
         }
-        // Write current settings to shared prefs
-        //
-        appName = textFieldAppName.getText().toString();
-        restPort = Integer.parseInt(textFieldRestPort.getText().toString());
 
-        SharedPreferences.Editor prefEditor = mPrefs.edit();
-        prefEditor.putString(prefAppName, appName);
-        prefEditor.putInt(prefRestPort, restPort);
-        prefEditor.apply();
-        tvLogMessage("Settings saved!");
+        // Get current values
+        String currAppName = textFieldAppName.getText().toString();
+        int currRestPort = Integer.parseInt(textFieldRestPort.getText().toString());
+
+        // If settings was changed
+        if ( !currAppName.equals(appName) || (currRestPort != restPort)) {
+            // Write current settings to shared prefs
+            appName = currAppName;
+            restPort = currRestPort;
+            SharedPreferences.Editor prefEditor = mPrefs.edit();
+            prefEditor.putString(prefAppName, appName);
+            prefEditor.putInt(prefRestPort, restPort);
+            prefEditor.apply();
+            tvLogMessage("Settings saved!");
+        }
     }
 
     //==============================================================================================
@@ -417,6 +423,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onPause() {
         super.onPause();
         appSettingsSave();
+    }
+
+    //==============================================================================================
+    @Override
+    public void onBackPressed() {
+        appSettingsSave();
+        moveTaskToBack(true);
     }
 
     //==============================================================================================
